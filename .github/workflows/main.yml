@@ -21,5 +21,8 @@ jobs:
             - name: run flake8 for code quality and static analysis
               run: flake8 .
               continue-on-error: true
+            - name: setup python path
+              run: |
+                echo "PYTHONPATH"=$GITHUB_WORKSPACE >> $GITHUB_ENV
             - name: run tests
               run: pytest tests --cov=app --cov-report=xml
